@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>191018</title>
+  <style>
+    #one{border:1px solid blue;}
+    #two{color:red;}
+    #three{background: gray;}
+
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    // gt=greater than  lt=less than
+
+    // // 예제코드 appendTo
+    // // 함수선언
+    // $(document).ready(function(){
+    //   // class=list의 li중 첫번째 li요소를 class=list의 맨 아래에 붙이기 appendTo
+    //   $('.list li:first-child').appendTo('.list');
+    // });
+
+    // // 실습문제 appendTo
+    // // 함수선언
+    // $(document).ready(function(){
+    //   $("#myList li img").css("width","100px").css("height","100px");
+    //   // id=myList li중 첫번째 요소를 맨 밑에 붙이기
+    //   $("#myList li:first-child").appendTo("#myList");
+    // });
+
+
+    // // 예제코드 prependTo
+    // // 함수선언
+    // $(document).ready(function(){
+    //   // 마지막 li요소를 맨 위로 보내기
+    //   $(".list li:last-child").prependTo(".list");
+    // });
+
+    // // 실습문제 위치탐색선택자
+    // // 함수선언
+    // $(document).ready(function(){
+    //   $("#myList li img").css("width","100px").css("height","100px");
+    //   // id=myList의 li중 네번째 요소를 첫번째로 이동하기 prependTo
+    //   $("#myList li:last-child").prependTo('#myList');
+    // });
+
+    // // 실습문제 위치탐색선택자
+    // // 함수선언
+    // $(document).ready(function(){
+    //   // div태그로 1을 만들어서 2앞에 추가하기(prepend)
+    //   // class=numList 하위요소로 새 div요소 1을 만들어서 맨 앞에(2앞에)추가
+    //   // 부모.맨앞에추가(새태그,문자);
+    //   $(".numList").prepend("<div>1</div>");
+    //   // class=numList 하위요소로 div 3만들어서 class=four인 요소 앞에 추가 insertBefore
+    //   // 생성할태그,문자.누구앞에추가(누구);
+    //   $("<div>3</div>").insertBefore(".four");
+    //   // $(".four").before("<div>3</div>");
+    //
+    //   // div 5를 만들어서 5뒤에 추가 insertAfter
+    //   // 생성할태그,문자.뒤에추가(부모).eq(인덱스번호);
+    //   $("<div>5</div>").insertAfter(".numList").eq(4);
+    //   // $(".numList div").eq(4).after("<div>5</div>");
+    //   // class=four의 요소를 복제하여 맨 뒤에 추가 appendTo
+    //   // 복제할요소.복제().맨뒤에추가(부모)
+    //   $(".four").clone().appendTo(".numList");
+    // });
+
+    // // 속성조작메소드-html()/text()메소드
+    // $(function(){
+    //   // .html() = 선택한 id-sec_1의 태그,내용 전부다 검사창에 나타냄
+    //   var result_1=$("#sec_1").html();
+    //   console.log(result_1);
+    //
+    //   // .html("새요소") = 선택한 id=sec_1 p를 전부 제거하고 "새요소" 태그 제외하고 브라우저창에 출력
+    //   $("#sec_1 p").html("<a href=\"#\">Text1</a>");
+    //
+    //   // .text() = 태그를 제외하고 선택한 id=sec_2안의 문자가 출력됨
+    //   var result_2=$("#sec_2").text();
+    //   console.log(result_2);
+    //
+    //   // .text("새문자") = 선택한 id=sec_2 h2안의 모든 내용 제거하고 "새문자"가 브라우저창에 출력
+    //   $("#sec_2 h2").text("text()");
+    // });
+
+    // // 실습문제 속성조작
+    // // 함수선언
+    // $(function(){
+    //   // class=readHtml 하위 내용을 태그 포함해서 검사창에 모두 출력 .html();
+    //   var result1=$(".readHtml").html();
+    //   console.log(result1);
+    //
+    //   // class=readtext의 태그를 제외한 문자만 검사창에 출력 .text();
+    //   var result2=$(".readtext").text();
+    //   console.log(result2);
+    //
+    //   // class=writeHtml 내부에 p write html() 추가하기 .html(새요소);
+    //   $(".writeHtml").html("<p>write html()</p>");
+    //
+    //   // class=writeText 하위 p태그 내부에 write html()을 추가하기 .text(새문자);
+    //   $(".writeText p").text("write html()");
+    // });
+
+    // // 속성조작메소드 - attr() / removeAttr() 메소드 예제코드
+    // $(function(){
+    //   // .attr("속성명")
+    //   var srcVal=$("#sec_1 img").attr("src");
+    //   console.log(srcVal);
+    //   // 이미지1을 이미지2로 변경 attr({"속성명":변수명.replace("이미지1","이미지2")});
+    //   $("#sec_1 img").attr({
+    //     // 스타일변경"너비",:변경값
+    //     "width":200,
+    //     // 이미지의 속성명 "src":변수명.replace("변경될이미지 이름의 변경되는 부분 1.(파일)jpg","2.jpg")
+    //     "src":srcVal.replace("1.jpg","2.jpg"),
+    //     "alt":"바위"
+    //   })
+    //   // 위의 이미지의 테두리 제거 .removeAttr("테두리");
+    //   .removeAttr("border");
+    // });
+
+    // 속성조작메소드 실습문제
+    // 함수선언
+    $(function(){
+      // class=one 요소에 id=one으로 속성추가 -여러개 추가할때는 attr()안에 {}써주기 ,로 구분
+      $('.one').attr('id','one');
+      // class=two의 id속성의 값을 검사창에 출력
+      var result=$('.two ').attr('id');
+      console.log(result);
+      // class=three의 id속성 제거
+      $('.three').removeAttr('id');
+    });
+
+    // 속성조작메소드 addClass()/ removeClass()
+    // toggleClass() -> class값이 있는지 없는지 검사해서 있으면 삭제, 없으면 생성함
+    // hasClass() -> class값이 있으면 true, 없으면 false
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+  <!-- 예제코드 appendTo -->
+  <!-- <div id="wrap"> -->
+		<!-- <h2>appendTo</h2> -->
+		<!-- <ul  class="list"> -->
+			<!-- <li>list_1</li> -->
+			<!-- <li>list_2</li> -->
+			<!-- <li>list_3</li> -->
+			<!-- <li>list_4</li> -->
+			<!-- <li>list_5</li> -->
+		<!-- </ul> -->
+	<!-- </div> -->
+
+  <!-- 실습문제 appendTo -->
+  <!-- <ul id="myList"> -->
+		<!-- <li> <img src="images/bran1.jpg" alt=""> </li> -->
+		<!-- <li> <img src="images/bran2.jpg" alt=""> </li> -->
+		<!-- <li> <img src="images/bran3.jpg" alt=""> </li> -->
+		<!-- <li> <img src="images/bran4.jpg" alt=""> </li> -->
+	<!-- </ul> -->
+
+  <!-- 위치탐색선택자 prependTo 예제코드 -->
+  <!-- <div id="wrap"> -->
+		<!-- <h2>prependTo</h2> -->
+		<!-- <ul  class="list"> -->
+			<!-- <li>list_1</li> -->
+			<!-- <li>list_2</li> -->
+			<!-- <li>list_3</li> -->
+			<!-- <li>list_4</li> -->
+			<!-- <li>list_5</li> -->
+		<!-- </ul> -->
+	<!-- </div> -->
+
+  <!-- 실습문제 위치탐색선택자 -->
+  <!-- <ul id="myList"> -->
+    <!-- <li> <img src="images/bran1.jpg" alt=""> </li> -->
+    <!-- <li> <img src="images/bran2.jpg" alt=""> </li> -->
+    <!-- <li> <img src="images/bran3.jpg" alt=""> </li> -->
+    <!-- <li> <img src="images/bran4.jpg" alt=""> </li> -->
+  <!-- </ul> -->
+
+  <!-- 실습문제 위치탐색선택자 -->
+  <!-- <div class="numList"> -->
+      <!-- <div>2</div> -->
+      <!-- <div class="four">4</div> -->
+      <!-- <div>5</div> -->
+    <!-- </div> -->
+
+    <!-- 속성조작메소드-html()/text()메소드 -->
+    <!-- <h1><strong>객체 조작 및 생성</strong></h1> -->
+      <!-- <section id="sec_1"> -->
+        <!-- <h2><em>html()</em></h2> -->
+          <!-- <p>내용1</p> -->
+      <!-- </section> -->
+      <!-- <section id="sec_2"> -->
+        <!-- <h2><em>텍스트()</em></h2> -->
+        <!-- <p>내용2</p> -->
+      <!-- </section> -->
+
+      <!-- 실습문제 속성조작 -->
+      <!-- <div class="readHtml"> -->
+      <!-- <p>read html()</p> -->
+    <!-- </div> -->
+    <!-- <div class="readtext"> -->
+      <!-- <p>read html()</p> -->
+    <!-- </div> -->
+    <!-- <div class="writeHtml"> -->
+    <!-- </div> -->
+    <!-- <div class="writeText"> -->
+      <!-- <p></p> -->
+    <!-- </div> -->
+
+    <!-- 속성조작메소드 - attr() / removeAttr() 메소드 예제코드 -->
+    <!-- <h1><strong>객체 조작 및 생성</strong></h1> -->
+    <!-- <section id="sec_1"> -->
+      <!-- <h2>이미지 속성</h2> -->
+      <!-- <p><img src="images/math_img_1.jpg" alt=＂가위" border="2"></p> -->
+    <!-- </section> -->
+
+    <!-- 속성조작메소드 실습문제 -->
+    <ul>
+      <li class='one'>1</li>
+      <li class='two' id='two'>2</li>
+      <li class='three', id='three'>3</li>
+    </ul>
+
+
+
+</body>
+</html>
